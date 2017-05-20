@@ -4,4 +4,4 @@ jdk:
 install:
     - mvn clean install -Dgpg.skip=true
 before_install:
- - chmod +x gradlew
+  - chmod +x mvnw
