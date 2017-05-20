@@ -1,2 +1,2 @@
 language: java
-script: sudo ./mvnw -Pprod -DskipTests package
+script: mvn -Pprod -DskipTests package
