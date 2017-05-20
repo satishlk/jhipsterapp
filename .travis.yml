@@ -1,7 +1,11 @@
 language: java
 jdk:
   - oraclejdk8
+cache:
+directories:
+  - "$HOME/.m2"
 install:
     -  ./mvnw -Pprod -DskipTests package
 before_install:
   - chmod +x mvnw
+script: ./mvnw -Pprod -DskipTests package
