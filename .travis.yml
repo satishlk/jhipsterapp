@@ -5,3 +5,4 @@ install:
     - mvn clean install -Dgpg.skip=true
 before_install:
   - chmod +x mvnw
+script: ./mvnw -Pprod -DskipTests package
