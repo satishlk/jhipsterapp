@@ -1,2 +1,5 @@
 language: java
-script: mvn -Pprod -DskipTests package
+jdk:
+  - oraclejdk8
+install:
+    - mvn clean install -Dgpg.skip=true
