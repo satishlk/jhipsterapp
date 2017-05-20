@@ -1,0 +1,53 @@
+
+<div *ngIf="vehicles">
+    <h2><span jhiTranslate="ionic2SampleApp.vehicles.detail.title">Vehicles</span> {{vehicles.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="ionic2SampleApp.vehicles.vehicleId">Vehicle Id</span></dt>
+        <dd>
+            <span>{{vehicles.vehicleId}}</span>
+        </dd>
+        <dt><span jhiTranslate="ionic2SampleApp.vehicles.vehiclesType">Vehicles Type</span></dt>
+        <dd>
+            <span>{{vehicles.vehiclesType}}</span>
+        </dd>
+        <dt><span jhiTranslate="ionic2SampleApp.vehicles.vehiclesDescrtion">Vehicles Descrtion</span></dt>
+        <dd>
+            <span>{{vehicles.vehiclesDescrtion}}</span>
+        </dd>
+        <dt><span jhiTranslate="ionic2SampleApp.vehicles.addDatetime">Add Datetime</span></dt>
+        <dd>
+            <span>{{vehicles.addDatetime | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="ionic2SampleApp.vehicles.addUserId">Add User Id</span></dt>
+        <dd>
+            <span>{{vehicles.addUserId}}</span>
+        </dd>
+        <dt><span jhiTranslate="ionic2SampleApp.vehicles.updateDateTime">Update Date Time</span></dt>
+        <dd>
+            <span>{{vehicles.updateDateTime | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="ionic2SampleApp.vehicles.updateUserId">Update User Id</span></dt>
+        <dd>
+            <span>{{vehicles.updateUserId}}</span>
+        </dd>
+        <dt><span jhiTranslate="ionic2SampleApp.vehicles.activation">Activation</span></dt>
+        <dd>
+            <span>{{vehicles.activation}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'vehicles/'+ vehicles.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

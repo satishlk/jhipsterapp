@@ -1,0 +1,75 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myParkingHistoryLabel" jhiTranslate="ionic2SampleApp.parkingHistory.home.createOrEditLabel">Create or edit a Parking History</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!parkingHistory.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="parkingHistory.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ionic2SampleApp.parkingHistory.parkingId" for="field_parkingId">Parking Id</label>
+            <input type="number" class="form-control" name="parkingId" id="field_parkingId"
+                [(ngModel)]="parkingHistory.parkingId"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ionic2SampleApp.parkingHistory.vehicleNo" for="field_vehicleNo">Vehicle No</label>
+            <input type="text" class="form-control" name="vehicleNo" id="field_vehicleNo"
+                [(ngModel)]="parkingHistory.vehicleNo"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ionic2SampleApp.parkingHistory.contactNo" for="field_contactNo">Contact No</label>
+            <input type="text" class="form-control" name="contactNo" id="field_contactNo"
+                [(ngModel)]="parkingHistory.contactNo"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ionic2SampleApp.parkingHistory.intime" for="field_intime">Intime</label>
+            <div class="d-flex">
+                <input id="field_intime" type="datetime-local" class="form-control" name="intime" [(ngModel)]="parkingHistory.intime"
+                  />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ionic2SampleApp.parkingHistory.outTime" for="field_outTime">Out Time</label>
+            <div class="d-flex">
+                <input id="field_outTime" type="datetime-local" class="form-control" name="outTime" [(ngModel)]="parkingHistory.outTime"
+                  />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ionic2SampleApp.parkingHistory.inUser" for="field_inUser">In User</label>
+            <input type="text" class="form-control" name="inUser" id="field_inUser"
+                [(ngModel)]="parkingHistory.inUser"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ionic2SampleApp.parkingHistory.outUser" for="field_outUser">Out User</label>
+            <input type="text" class="form-control" name="outUser" id="field_outUser"
+                [(ngModel)]="parkingHistory.outUser"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ionic2SampleApp.parkingHistory.cost" for="field_cost">Cost</label>
+            <input type="number" class="form-control" name="cost" id="field_cost"
+                [(ngModel)]="parkingHistory.cost"
+             />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

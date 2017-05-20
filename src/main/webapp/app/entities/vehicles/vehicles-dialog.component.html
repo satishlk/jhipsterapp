@@ -1,0 +1,75 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myVehiclesLabel" jhiTranslate="ionic2SampleApp.vehicles.home.createOrEditLabel">Create or edit a Vehicles</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!vehicles.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="vehicles.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ionic2SampleApp.vehicles.vehicleId" for="field_vehicleId">Vehicle Id</label>
+            <input type="number" class="form-control" name="vehicleId" id="field_vehicleId"
+                [(ngModel)]="vehicles.vehicleId"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ionic2SampleApp.vehicles.vehiclesType" for="field_vehiclesType">Vehicles Type</label>
+            <input type="text" class="form-control" name="vehiclesType" id="field_vehiclesType"
+                [(ngModel)]="vehicles.vehiclesType"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ionic2SampleApp.vehicles.vehiclesDescrtion" for="field_vehiclesDescrtion">Vehicles Descrtion</label>
+            <input type="text" class="form-control" name="vehiclesDescrtion" id="field_vehiclesDescrtion"
+                [(ngModel)]="vehicles.vehiclesDescrtion"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ionic2SampleApp.vehicles.addDatetime" for="field_addDatetime">Add Datetime</label>
+            <div class="d-flex">
+                <input id="field_addDatetime" type="datetime-local" class="form-control" name="addDatetime" [(ngModel)]="vehicles.addDatetime"
+                  />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ionic2SampleApp.vehicles.addUserId" for="field_addUserId">Add User Id</label>
+            <input type="text" class="form-control" name="addUserId" id="field_addUserId"
+                [(ngModel)]="vehicles.addUserId"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ionic2SampleApp.vehicles.updateDateTime" for="field_updateDateTime">Update Date Time</label>
+            <div class="d-flex">
+                <input id="field_updateDateTime" type="datetime-local" class="form-control" name="updateDateTime" [(ngModel)]="vehicles.updateDateTime"
+                  />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ionic2SampleApp.vehicles.updateUserId" for="field_updateUserId">Update User Id</label>
+            <input type="text" class="form-control" name="updateUserId" id="field_updateUserId"
+                [(ngModel)]="vehicles.updateUserId"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ionic2SampleApp.vehicles.activation" for="field_activation">Activation</label>
+            <input type="checkbox" class="form-control" name="activation" id="field_activation"
+                [(ngModel)]="vehicles.activation"
+             />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

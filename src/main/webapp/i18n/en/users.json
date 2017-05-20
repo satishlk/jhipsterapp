@@ -1,0 +1,41 @@
+{
+    "ionic2SampleApp": {
+        "users" : {
+            "home": {
+                "title": "Users",
+                "createLabel": "Create a new Users",
+                "createOrEditLabel": "Create or edit a Users"
+            },
+            "created": "A new Users is created with identifier {{ param }}",
+            "updated": "A Users is updated with identifier {{ param }}",
+            "deleted": "A Users is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Users {{ id }}?"
+            },
+            "detail": {
+                "title": "Users"
+            },
+            "userId": "User Id",
+            "fullName": "Full Name",
+            "username": "Username",
+            "password": "Password",
+            "email": "Email",
+            "contactNo": "Contact No",
+            "address": "Address",
+            "pincode": "Pincode",
+            "activation": "Activation",
+            "vendorId": "Vendor Id",
+            "addDatetime": "Add Datetime",
+            "addUserId": "Add User Id",
+            "updateDateTime": "Update Date Time",
+            "updateUserId": "Update User Id",
+            "parent": "Parent",
+            "type": "Type",
+            "city": "City",
+            "state": "State",
+            "country": "Country",
+            "location": "Location",
+            "user": "User"
+        }
+    }
+}

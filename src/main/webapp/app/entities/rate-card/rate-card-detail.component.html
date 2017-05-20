@@ -1,0 +1,65 @@
+
+<div *ngIf="rateCard">
+    <h2><span jhiTranslate="ionic2SampleApp.rateCard.detail.title">Rate Card</span> {{rateCard.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="ionic2SampleApp.rateCard.ratePerHour">Rate Per Hour</span></dt>
+        <dd>
+            <span>{{rateCard.ratePerHour}}</span>
+        </dd>
+        <dt><span jhiTranslate="ionic2SampleApp.rateCard.extraHour">Extra Hour</span></dt>
+        <dd>
+            <span>{{rateCard.extraHour}}</span>
+        </dd>
+        <dt><span jhiTranslate="ionic2SampleApp.rateCard.vendorId">Vendor Id</span></dt>
+        <dd>
+            <span>{{rateCard.vendorId}}</span>
+        </dd>
+        <dt><span jhiTranslate="ionic2SampleApp.rateCard.addDatetime">Add Datetime</span></dt>
+        <dd>
+            <span>{{rateCard.addDatetime | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="ionic2SampleApp.rateCard.addUserId">Add User Id</span></dt>
+        <dd>
+            <span>{{rateCard.addUserId}}</span>
+        </dd>
+        <dt><span jhiTranslate="ionic2SampleApp.rateCard.updateDateTime">Update Date Time</span></dt>
+        <dd>
+            <span>{{rateCard.updateDateTime | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="ionic2SampleApp.rateCard.updateUserId">Update User Id</span></dt>
+        <dd>
+            <span>{{rateCard.updateUserId}}</span>
+        </dd>
+        <dt><span jhiTranslate="ionic2SampleApp.rateCard.activation">Activation</span></dt>
+        <dd>
+            <span>{{rateCard.activation}}</span>
+        </dd>
+        <dt><span jhiTranslate="ionic2SampleApp.rateCard.vehicle">Vehicle</span></dt>
+        <dd>
+            <div *ngIf="rateCard.vehicle">
+                <a [routerLink]="['/vehicles', rateCard.vehicle?.id]">{{rateCard.vehicle?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="ionic2SampleApp.rateCard.vehicles">Vehicles</span></dt>
+        <dd>
+            <div *ngIf="rateCard.vehicles">
+                <a [routerLink]="['/vehicles', rateCard.vehicles?.id]">{{rateCard.vehicles?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'rate-card/'+ rateCard.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

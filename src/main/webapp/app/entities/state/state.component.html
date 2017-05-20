@@ -1,0 +1,74 @@
+<div>
+    <h2>
+        <span jhiTranslate="ionic2SampleApp.state.home.title">States</span>
+        <button class="btn btn-primary float-right create-state" [routerLink]="['/', { outlets: { popup: ['state-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="ionic2SampleApp.state.home.createLabel">
+            Create new State
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="states">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="ionic2SampleApp.state.stateId">State Id</span></th>
+            <th><span jhiTranslate="ionic2SampleApp.state.stateName">State Name</span></th>
+            <th><span jhiTranslate="ionic2SampleApp.state.stateCode">State Code</span></th>
+            <th><span jhiTranslate="ionic2SampleApp.state.stateDescription">State Description</span></th>
+            <th><span jhiTranslate="ionic2SampleApp.state.country">Country</span></th>
+            <th><span jhiTranslate="ionic2SampleApp.state.location">Location</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let state of states ;trackBy: trackId">
+                <td><a [routerLink]="['../state', state.id ]">{{state.id}}</a></td>
+                <td>{{state.stateId}}</td>
+                <td>{{state.stateName}}</td>
+                <td>{{state.stateCode}}</td>
+                <td>{{state.stateDescription}}</td>
+                <td>
+                    <div *ngIf="state.country">
+                        <a [routerLink]="['../country', state.country?.id ]" >{{state.country?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="state.location">
+                        <a [routerLink]="['../location', state.location?.id ]" >{{state.location?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../state', state.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'state/'+ state.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'state/'+ state.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

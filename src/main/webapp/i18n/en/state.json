@@ -1,0 +1,27 @@
+{
+    "ionic2SampleApp": {
+        "state" : {
+            "home": {
+                "title": "States",
+                "createLabel": "Create a new State",
+                "createOrEditLabel": "Create or edit a State"
+            },
+            "created": "A new State is created with identifier {{ param }}",
+            "updated": "A State is updated with identifier {{ param }}",
+            "deleted": "A State is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete State {{ id }}?"
+            },
+            "detail": {
+                "title": "State"
+            },
+            "stateId": "State Id",
+            "stateName": "State Name",
+            "stateCode": "State Code",
+            "stateDescription": "State Description",
+            "country": "Country",
+            "state": "State",
+            "location": "Location"
+        }
+    }
+}

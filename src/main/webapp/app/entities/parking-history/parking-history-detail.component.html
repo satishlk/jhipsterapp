@@ -1,0 +1,53 @@
+
+<div *ngIf="parkingHistory">
+    <h2><span jhiTranslate="ionic2SampleApp.parkingHistory.detail.title">Parking History</span> {{parkingHistory.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="ionic2SampleApp.parkingHistory.parkingId">Parking Id</span></dt>
+        <dd>
+            <span>{{parkingHistory.parkingId}}</span>
+        </dd>
+        <dt><span jhiTranslate="ionic2SampleApp.parkingHistory.vehicleNo">Vehicle No</span></dt>
+        <dd>
+            <span>{{parkingHistory.vehicleNo}}</span>
+        </dd>
+        <dt><span jhiTranslate="ionic2SampleApp.parkingHistory.contactNo">Contact No</span></dt>
+        <dd>
+            <span>{{parkingHistory.contactNo}}</span>
+        </dd>
+        <dt><span jhiTranslate="ionic2SampleApp.parkingHistory.intime">Intime</span></dt>
+        <dd>
+            <span>{{parkingHistory.intime | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="ionic2SampleApp.parkingHistory.outTime">Out Time</span></dt>
+        <dd>
+            <span>{{parkingHistory.outTime | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="ionic2SampleApp.parkingHistory.inUser">In User</span></dt>
+        <dd>
+            <span>{{parkingHistory.inUser}}</span>
+        </dd>
+        <dt><span jhiTranslate="ionic2SampleApp.parkingHistory.outUser">Out User</span></dt>
+        <dd>
+            <span>{{parkingHistory.outUser}}</span>
+        </dd>
+        <dt><span jhiTranslate="ionic2SampleApp.parkingHistory.cost">Cost</span></dt>
+        <dd>
+            <span>{{parkingHistory.cost}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'parking-history/'+ parkingHistory.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

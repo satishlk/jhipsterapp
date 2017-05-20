@@ -1,0 +1,30 @@
+{
+    "ionic2SampleApp": {
+        "rateCard" : {
+            "home": {
+                "title": "Rate Cards",
+                "createLabel": "Create a new Rate Card",
+                "createOrEditLabel": "Create or edit a Rate Card"
+            },
+            "created": "A new Rate Card is created with identifier {{ param }}",
+            "updated": "A Rate Card is updated with identifier {{ param }}",
+            "deleted": "A Rate Card is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Rate Card {{ id }}?"
+            },
+            "detail": {
+                "title": "Rate Card"
+            },
+            "ratePerHour": "Rate Per Hour",
+            "extraHour": "Extra Hour",
+            "vendorId": "Vendor Id",
+            "addDatetime": "Add Datetime",
+            "addUserId": "Add User Id",
+            "updateDateTime": "Update Date Time",
+            "updateUserId": "Update User Id",
+            "activation": "Activation",
+            "vehicle": "Vehicle",
+            "vehicles": "Vehicles"
+        }
+    }
+}

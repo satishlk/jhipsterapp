@@ -1,0 +1,70 @@
+<div>
+    <h2>
+        <span jhiTranslate="ionic2SampleApp.parkingHistory.home.title">Parking Histories</span>
+        <button class="btn btn-primary float-right create-parking-history" [routerLink]="['/', { outlets: { popup: ['parking-history-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="ionic2SampleApp.parkingHistory.home.createLabel">
+            Create new Parking History
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="parkingHistories">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="ionic2SampleApp.parkingHistory.parkingId">Parking Id</span></th>
+            <th><span jhiTranslate="ionic2SampleApp.parkingHistory.vehicleNo">Vehicle No</span></th>
+            <th><span jhiTranslate="ionic2SampleApp.parkingHistory.contactNo">Contact No</span></th>
+            <th><span jhiTranslate="ionic2SampleApp.parkingHistory.intime">Intime</span></th>
+            <th><span jhiTranslate="ionic2SampleApp.parkingHistory.outTime">Out Time</span></th>
+            <th><span jhiTranslate="ionic2SampleApp.parkingHistory.inUser">In User</span></th>
+            <th><span jhiTranslate="ionic2SampleApp.parkingHistory.outUser">Out User</span></th>
+            <th><span jhiTranslate="ionic2SampleApp.parkingHistory.cost">Cost</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let parkingHistory of parkingHistories ;trackBy: trackId">
+                <td><a [routerLink]="['../parking-history', parkingHistory.id ]">{{parkingHistory.id}}</a></td>
+                <td>{{parkingHistory.parkingId}}</td>
+                <td>{{parkingHistory.vehicleNo}}</td>
+                <td>{{parkingHistory.contactNo}}</td>
+                <td>{{parkingHistory.intime | date:'medium'}}</td>
+                <td>{{parkingHistory.outTime | date:'medium'}}</td>
+                <td>{{parkingHistory.inUser}}</td>
+                <td>{{parkingHistory.outUser}}</td>
+                <td>{{parkingHistory.cost}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../parking-history', parkingHistory.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'parking-history/'+ parkingHistory.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'parking-history/'+ parkingHistory.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

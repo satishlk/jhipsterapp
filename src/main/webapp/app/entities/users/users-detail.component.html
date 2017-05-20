@@ -1,0 +1,111 @@
+
+<div *ngIf="users">
+    <h2><span jhiTranslate="ionic2SampleApp.users.detail.title">Users</span> {{users.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="ionic2SampleApp.users.userId">User Id</span></dt>
+        <dd>
+            <span>{{users.userId}}</span>
+        </dd>
+        <dt><span jhiTranslate="ionic2SampleApp.users.fullName">Full Name</span></dt>
+        <dd>
+            <span>{{users.fullName}}</span>
+        </dd>
+        <dt><span jhiTranslate="ionic2SampleApp.users.username">Username</span></dt>
+        <dd>
+            <span>{{users.username}}</span>
+        </dd>
+        <dt><span jhiTranslate="ionic2SampleApp.users.password">Password</span></dt>
+        <dd>
+            <span>{{users.password}}</span>
+        </dd>
+        <dt><span jhiTranslate="ionic2SampleApp.users.email">Email</span></dt>
+        <dd>
+            <span>{{users.email}}</span>
+        </dd>
+        <dt><span jhiTranslate="ionic2SampleApp.users.contactNo">Contact No</span></dt>
+        <dd>
+            <span>{{users.contactNo}}</span>
+        </dd>
+        <dt><span jhiTranslate="ionic2SampleApp.users.address">Address</span></dt>
+        <dd>
+            <span>{{users.address}}</span>
+        </dd>
+        <dt><span jhiTranslate="ionic2SampleApp.users.pincode">Pincode</span></dt>
+        <dd>
+            <span>{{users.pincode}}</span>
+        </dd>
+        <dt><span jhiTranslate="ionic2SampleApp.users.activation">Activation</span></dt>
+        <dd>
+            <span>{{users.activation}}</span>
+        </dd>
+        <dt><span jhiTranslate="ionic2SampleApp.users.vendorId">Vendor Id</span></dt>
+        <dd>
+            <span>{{users.vendorId}}</span>
+        </dd>
+        <dt><span jhiTranslate="ionic2SampleApp.users.addDatetime">Add Datetime</span></dt>
+        <dd>
+            <span>{{users.addDatetime | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="ionic2SampleApp.users.addUserId">Add User Id</span></dt>
+        <dd>
+            <span>{{users.addUserId}}</span>
+        </dd>
+        <dt><span jhiTranslate="ionic2SampleApp.users.updateDateTime">Update Date Time</span></dt>
+        <dd>
+            <span>{{users.updateDateTime | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="ionic2SampleApp.users.updateUserId">Update User Id</span></dt>
+        <dd>
+            <span>{{users.updateUserId}}</span>
+        </dd>
+        <dt><span jhiTranslate="ionic2SampleApp.users.parent">Parent</span></dt>
+        <dd>
+            <span>{{users.parent}}</span>
+        </dd>
+        <dt><span jhiTranslate="ionic2SampleApp.users.type">Type</span></dt>
+        <dd>
+            <div *ngIf="users.type">
+                <a [routerLink]="['/user-type', users.type?.id]">{{users.type?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="ionic2SampleApp.users.city">City</span></dt>
+        <dd>
+            <div *ngIf="users.city">
+                <a [routerLink]="['/city', users.city?.id]">{{users.city?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="ionic2SampleApp.users.state">State</span></dt>
+        <dd>
+            <div *ngIf="users.state">
+                <a [routerLink]="['/state', users.state?.id]">{{users.state?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="ionic2SampleApp.users.country">Country</span></dt>
+        <dd>
+            <div *ngIf="users.country">
+                <a [routerLink]="['/country', users.country?.id]">{{users.country?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="ionic2SampleApp.users.location">Location</span></dt>
+        <dd>
+            <div *ngIf="users.location">
+                <a [routerLink]="['/location', users.location?.id]">{{users.location?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'users/'+ users.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

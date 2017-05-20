@@ -1,0 +1,63 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myCityLabel" jhiTranslate="ionic2SampleApp.city.home.createOrEditLabel">Create or edit a City</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!city.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="city.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ionic2SampleApp.city.cityId" for="field_cityId">City Id</label>
+            <input type="number" class="form-control" name="cityId" id="field_cityId"
+                [(ngModel)]="city.cityId"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ionic2SampleApp.city.cityName" for="field_cityName">City Name</label>
+            <input type="text" class="form-control" name="cityName" id="field_cityName"
+                [(ngModel)]="city.cityName"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ionic2SampleApp.city.cityCode" for="field_cityCode">City Code</label>
+            <input type="text" class="form-control" name="cityCode" id="field_cityCode"
+                [(ngModel)]="city.cityCode"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ionic2SampleApp.city.cityDescription" for="field_cityDescription">City Description</label>
+            <input type="text" class="form-control" name="cityDescription" id="field_cityDescription"
+                [(ngModel)]="city.cityDescription"
+             />
+        </div>
+
+        <div class="form-group">
+            <label jhiTranslate="ionic2SampleApp.city.state" for="field_state">State</label>
+            <select class="form-control" id="field_state" name="state" [(ngModel)]="city.state" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="stateOption.id === city.state?.id ? city.state : stateOption" *ngFor="let stateOption of states; trackBy: trackStateById">{{stateOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label jhiTranslate="ionic2SampleApp.city.location" for="field_location">Location</label>
+            <select class="form-control" id="field_location" name="location" [(ngModel)]="city.location" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="locationOption.id === city.location?.id ? city.location : locationOption" *ngFor="let locationOption of locations; trackBy: trackLocationById">{{locationOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

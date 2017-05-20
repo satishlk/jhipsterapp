@@ -1,0 +1,152 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myUsersLabel" jhiTranslate="ionic2SampleApp.users.home.createOrEditLabel">Create or edit a Users</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!users.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="users.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ionic2SampleApp.users.userId" for="field_userId">User Id</label>
+            <input type="number" class="form-control" name="userId" id="field_userId"
+                [(ngModel)]="users.userId"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ionic2SampleApp.users.fullName" for="field_fullName">Full Name</label>
+            <input type="text" class="form-control" name="fullName" id="field_fullName"
+                [(ngModel)]="users.fullName"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ionic2SampleApp.users.username" for="field_username">Username</label>
+            <input type="text" class="form-control" name="username" id="field_username"
+                [(ngModel)]="users.username"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ionic2SampleApp.users.password" for="field_password">Password</label>
+            <input type="text" class="form-control" name="password" id="field_password"
+                [(ngModel)]="users.password"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ionic2SampleApp.users.email" for="field_email">Email</label>
+            <input type="text" class="form-control" name="email" id="field_email"
+                [(ngModel)]="users.email"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ionic2SampleApp.users.contactNo" for="field_contactNo">Contact No</label>
+            <input type="text" class="form-control" name="contactNo" id="field_contactNo"
+                [(ngModel)]="users.contactNo"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ionic2SampleApp.users.address" for="field_address">Address</label>
+            <input type="text" class="form-control" name="address" id="field_address"
+                [(ngModel)]="users.address"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ionic2SampleApp.users.pincode" for="field_pincode">Pincode</label>
+            <input type="number" class="form-control" name="pincode" id="field_pincode"
+                [(ngModel)]="users.pincode"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ionic2SampleApp.users.activation" for="field_activation">Activation</label>
+            <input type="checkbox" class="form-control" name="activation" id="field_activation"
+                [(ngModel)]="users.activation"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ionic2SampleApp.users.vendorId" for="field_vendorId">Vendor Id</label>
+            <input type="number" class="form-control" name="vendorId" id="field_vendorId"
+                [(ngModel)]="users.vendorId"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ionic2SampleApp.users.addDatetime" for="field_addDatetime">Add Datetime</label>
+            <div class="d-flex">
+                <input id="field_addDatetime" type="datetime-local" class="form-control" name="addDatetime" [(ngModel)]="users.addDatetime"
+                  />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ionic2SampleApp.users.addUserId" for="field_addUserId">Add User Id</label>
+            <input type="text" class="form-control" name="addUserId" id="field_addUserId"
+                [(ngModel)]="users.addUserId"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ionic2SampleApp.users.updateDateTime" for="field_updateDateTime">Update Date Time</label>
+            <div class="d-flex">
+                <input id="field_updateDateTime" type="datetime-local" class="form-control" name="updateDateTime" [(ngModel)]="users.updateDateTime"
+                  />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ionic2SampleApp.users.updateUserId" for="field_updateUserId">Update User Id</label>
+            <input type="text" class="form-control" name="updateUserId" id="field_updateUserId"
+                [(ngModel)]="users.updateUserId"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ionic2SampleApp.users.parent" for="field_parent">Parent</label>
+            <input type="number" class="form-control" name="parent" id="field_parent"
+                [(ngModel)]="users.parent"
+             />
+        </div>
+
+        <div class="form-group">
+            <label jhiTranslate="ionic2SampleApp.users.type" for="field_type">Type</label>
+            <select class="form-control" id="field_type" name="type" [(ngModel)]="users.type">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="userTypeOption.id === users.type?.id ? users.type : userTypeOption" *ngFor="let userTypeOption of types; trackBy: trackUserTypeById">{{userTypeOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label jhiTranslate="ionic2SampleApp.users.city" for="field_city">City</label>
+            <select class="form-control" id="field_city" name="city" [(ngModel)]="users.city">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="cityOption.id === users.city?.id ? users.city : cityOption" *ngFor="let cityOption of cities; trackBy: trackCityById">{{cityOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label jhiTranslate="ionic2SampleApp.users.state" for="field_state">State</label>
+            <select class="form-control" id="field_state" name="state" [(ngModel)]="users.state">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="stateOption.id === users.state?.id ? users.state : stateOption" *ngFor="let stateOption of states; trackBy: trackStateById">{{stateOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label jhiTranslate="ionic2SampleApp.users.country" for="field_country">Country</label>
+            <select class="form-control" id="field_country" name="country" [(ngModel)]="users.country">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="countryOption.id === users.country?.id ? users.country : countryOption" *ngFor="let countryOption of countries; trackBy: trackCountryById">{{countryOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label jhiTranslate="ionic2SampleApp.users.location" for="field_location">Location</label>
+            <select class="form-control" id="field_location" name="location" [(ngModel)]="users.location">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="locationOption.id === users.location?.id ? users.location : locationOption" *ngFor="let locationOption of locations; trackBy: trackLocationById">{{locationOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

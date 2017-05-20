@@ -1,0 +1,43 @@
+
+<div *ngIf="country">
+    <h2><span jhiTranslate="ionic2SampleApp.country.detail.title">Country</span> {{country.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="ionic2SampleApp.country.countryId">Country Id</span></dt>
+        <dd>
+            <span>{{country.countryId}}</span>
+        </dd>
+        <dt><span jhiTranslate="ionic2SampleApp.country.countryName">Country Name</span></dt>
+        <dd>
+            <span>{{country.countryName}}</span>
+        </dd>
+        <dt><span jhiTranslate="ionic2SampleApp.country.countryCode">Country Code</span></dt>
+        <dd>
+            <span>{{country.countryCode}}</span>
+        </dd>
+        <dt><span jhiTranslate="ionic2SampleApp.country.countryDescription">Country Description</span></dt>
+        <dd>
+            <span>{{country.countryDescription}}</span>
+        </dd>
+        <dt><span jhiTranslate="ionic2SampleApp.country.location">Location</span></dt>
+        <dd>
+            <div *ngIf="country.location">
+                <a [routerLink]="['/location', country.location?.id]">{{country.location?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'country/'+ country.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

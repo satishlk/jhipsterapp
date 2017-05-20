@@ -1,0 +1,49 @@
+
+<div *ngIf="userType">
+    <h2><span jhiTranslate="ionic2SampleApp.userType.detail.title">User Type</span> {{userType.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="ionic2SampleApp.userType.userType">User Type</span></dt>
+        <dd>
+            <span>{{userType.userType}}</span>
+        </dd>
+        <dt><span jhiTranslate="ionic2SampleApp.userType.userDescrption">User Descrption</span></dt>
+        <dd>
+            <span>{{userType.userDescrption}}</span>
+        </dd>
+        <dt><span jhiTranslate="ionic2SampleApp.userType.addDatetime">Add Datetime</span></dt>
+        <dd>
+            <span>{{userType.addDatetime | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="ionic2SampleApp.userType.addUserId">Add User Id</span></dt>
+        <dd>
+            <span>{{userType.addUserId}}</span>
+        </dd>
+        <dt><span jhiTranslate="ionic2SampleApp.userType.updateDateTime">Update Date Time</span></dt>
+        <dd>
+            <span>{{userType.updateDateTime | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="ionic2SampleApp.userType.updateUserId">Update User Id</span></dt>
+        <dd>
+            <span>{{userType.updateUserId}}</span>
+        </dd>
+        <dt><span jhiTranslate="ionic2SampleApp.userType.activation">Activation</span></dt>
+        <dd>
+            <span>{{userType.activation}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'user-type/'+ userType.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

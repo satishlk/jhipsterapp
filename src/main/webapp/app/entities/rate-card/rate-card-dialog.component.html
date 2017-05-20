@@ -1,0 +1,89 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myRateCardLabel" jhiTranslate="ionic2SampleApp.rateCard.home.createOrEditLabel">Create or edit a Rate Card</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!rateCard.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="rateCard.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ionic2SampleApp.rateCard.ratePerHour" for="field_ratePerHour">Rate Per Hour</label>
+            <input type="number" class="form-control" name="ratePerHour" id="field_ratePerHour"
+                [(ngModel)]="rateCard.ratePerHour"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ionic2SampleApp.rateCard.extraHour" for="field_extraHour">Extra Hour</label>
+            <input type="number" class="form-control" name="extraHour" id="field_extraHour"
+                [(ngModel)]="rateCard.extraHour"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ionic2SampleApp.rateCard.vendorId" for="field_vendorId">Vendor Id</label>
+            <input type="number" class="form-control" name="vendorId" id="field_vendorId"
+                [(ngModel)]="rateCard.vendorId"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ionic2SampleApp.rateCard.addDatetime" for="field_addDatetime">Add Datetime</label>
+            <div class="d-flex">
+                <input id="field_addDatetime" type="datetime-local" class="form-control" name="addDatetime" [(ngModel)]="rateCard.addDatetime"
+                  />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ionic2SampleApp.rateCard.addUserId" for="field_addUserId">Add User Id</label>
+            <input type="text" class="form-control" name="addUserId" id="field_addUserId"
+                [(ngModel)]="rateCard.addUserId"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ionic2SampleApp.rateCard.updateDateTime" for="field_updateDateTime">Update Date Time</label>
+            <div class="d-flex">
+                <input id="field_updateDateTime" type="datetime-local" class="form-control" name="updateDateTime" [(ngModel)]="rateCard.updateDateTime"
+                  />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ionic2SampleApp.rateCard.updateUserId" for="field_updateUserId">Update User Id</label>
+            <input type="text" class="form-control" name="updateUserId" id="field_updateUserId"
+                [(ngModel)]="rateCard.updateUserId"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="ionic2SampleApp.rateCard.activation" for="field_activation">Activation</label>
+            <input type="checkbox" class="form-control" name="activation" id="field_activation"
+                [(ngModel)]="rateCard.activation"
+             />
+        </div>
+
+        <div class="form-group">
+            <label jhiTranslate="ionic2SampleApp.rateCard.vehicle" for="field_vehicle">Vehicle</label>
+            <select class="form-control" id="field_vehicle" name="vehicle" [(ngModel)]="rateCard.vehicle">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="vehiclesOption.id === rateCard.vehicle?.id ? rateCard.vehicle : vehiclesOption" *ngFor="let vehiclesOption of vehicles; trackBy: trackVehiclesById">{{vehiclesOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label jhiTranslate="ionic2SampleApp.rateCard.vehicles" for="field_vehicles">Vehicles</label>
+            <select class="form-control" id="field_vehicles" name="vehicles" [(ngModel)]="rateCard.vehicles">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="vehiclesOption.id === rateCard.vehicles?.id ? rateCard.vehicles : vehiclesOption" *ngFor="let vehiclesOption of vehicles; trackBy: trackVehiclesById">{{vehiclesOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

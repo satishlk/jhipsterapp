@@ -1,0 +1,28 @@
+{
+    "ionic2SampleApp": {
+        "parkingHistory" : {
+            "home": {
+                "title": "Parking Histories",
+                "createLabel": "Create a new Parking History",
+                "createOrEditLabel": "Create or edit a Parking History"
+            },
+            "created": "A new Parking History is created with identifier {{ param }}",
+            "updated": "A Parking History is updated with identifier {{ param }}",
+            "deleted": "A Parking History is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Parking History {{ id }}?"
+            },
+            "detail": {
+                "title": "Parking History"
+            },
+            "parkingId": "Parking Id",
+            "vehicleNo": "Vehicle No",
+            "contactNo": "Contact No",
+            "intime": "Intime",
+            "outTime": "Out Time",
+            "inUser": "In User",
+            "outUser": "Out User",
+            "cost": "Cost"
+        }
+    }
+}

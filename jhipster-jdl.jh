@@ -1,0 +1,133 @@
+entity Country {
+	countryId Integer,
+    countryName String,
+    countryCode String,
+    countryDescription String
+}
+entity State {
+	stateId Integer,
+    stateName String,
+    stateCode String,
+    stateDescription String
+}
+
+entity City {
+	cityId Integer,
+    cityName String,
+    cityCode String,
+    cityDescription String
+
+}
+entity Location {
+	locationId Long,
+	locationName String,
+	locationAddress String,
+	locationContactNo String,
+    activation Boolean,
+    vendorId Long,
+    addDatetime ZonedDateTime,
+    addUserId String,
+    updateDateTime ZonedDateTime,
+    updateUserId String
+    
+}
+entity UserType{
+	id Long,
+    userType String,
+    userDescrption String,
+  	addDatetime ZonedDateTime,
+    addUserId String,
+    updateDateTime ZonedDateTime,
+    updateUserId String,
+    activation Boolean
+    
+}
+entity Users {
+	userId Long,
+	fullName String,
+	username String,
+    password String,
+    email String,
+    contactNo String,
+    address String,
+	pincode Integer,
+    activation Boolean,
+    vendorId Long,
+    addDatetime ZonedDateTime,
+    addUserId String,
+    updateDateTime ZonedDateTime,
+    updateUserId String,
+    parent Long
+    
+}
+
+
+
+entity ParkingHistory {
+    parkingId Long,
+    vehicleNo String,
+    contactNo String,
+    intime ZonedDateTime,
+	outTime ZonedDateTime,
+    inUser String,
+    outUser String,
+    cost  Long
+}
+entity Vehicles {
+    vehicleId Long,
+    vehiclesType String,
+    vehiclesDescrtion String,
+   	addDatetime ZonedDateTime,
+    addUserId String,
+    updateDateTime ZonedDateTime,
+    updateUserId String,
+    activation Boolean
+}
+
+
+entity RateCard {
+    id Long,
+    ratePerHour Double,
+    extraHour Double,
+	vendorId Long,
+   addDatetime ZonedDateTime,
+    addUserId String,
+    updateDateTime ZonedDateTime,
+    updateUserId String,
+    activation Boolean
+}
+
+
+relationship OneToOne {
+	RateCard{vehicle} to Vehicles
+}
+
+relationship OneToOne {
+	Users{type} to UserType,
+    Users{city} to City,
+    Users{state} to State,
+    Users{country} to Country,
+ 	Users{location} to Location
+}
+relationship OneToMany {
+
+    Location{city} to City,
+    Location{state} to State,
+    Location{country} to Country
+}
+relationship OneToMany{
+	Country{country} to State
+}
+relationship OneToMany{
+	State{state} to City
+}
+relationship OneToMany{
+	Users{user} to Location
+}
+relationship OneToOne{
+	RateCard{vehicles} to Vehicles
+}
+
+// an ignored comment
+/** not an ignored comment */
+

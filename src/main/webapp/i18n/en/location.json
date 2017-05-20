@@ -1,0 +1,34 @@
+{
+    "ionic2SampleApp": {
+        "location" : {
+            "home": {
+                "title": "Locations",
+                "createLabel": "Create a new Location",
+                "createOrEditLabel": "Create or edit a Location"
+            },
+            "created": "A new Location is created with identifier {{ param }}",
+            "updated": "A Location is updated with identifier {{ param }}",
+            "deleted": "A Location is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Location {{ id }}?"
+            },
+            "detail": {
+                "title": "Location"
+            },
+            "locationId": "Location Id",
+            "locationName": "Location Name",
+            "locationAddress": "Location Address",
+            "locationContactNo": "Location Contact No",
+            "activation": "Activation",
+            "vendorId": "Vendor Id",
+            "addDatetime": "Add Datetime",
+            "addUserId": "Add User Id",
+            "updateDateTime": "Update Date Time",
+            "updateUserId": "Update User Id",
+            "city": "City",
+            "state": "State",
+            "country": "Country",
+            "users": "Users"
+        }
+    }
+}

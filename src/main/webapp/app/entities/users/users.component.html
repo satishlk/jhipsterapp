@@ -1,0 +1,114 @@
+<div>
+    <h2>
+        <span jhiTranslate="ionic2SampleApp.users.home.title">Users</span>
+        <button class="btn btn-primary float-right create-users" [routerLink]="['/', { outlets: { popup: ['users-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="ionic2SampleApp.users.home.createLabel">
+            Create new Users
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="users">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="ionic2SampleApp.users.userId">User Id</span></th>
+            <th><span jhiTranslate="ionic2SampleApp.users.fullName">Full Name</span></th>
+            <th><span jhiTranslate="ionic2SampleApp.users.username">Username</span></th>
+            <th><span jhiTranslate="ionic2SampleApp.users.password">Password</span></th>
+            <th><span jhiTranslate="ionic2SampleApp.users.email">Email</span></th>
+            <th><span jhiTranslate="ionic2SampleApp.users.contactNo">Contact No</span></th>
+            <th><span jhiTranslate="ionic2SampleApp.users.address">Address</span></th>
+            <th><span jhiTranslate="ionic2SampleApp.users.pincode">Pincode</span></th>
+            <th><span jhiTranslate="ionic2SampleApp.users.activation">Activation</span></th>
+            <th><span jhiTranslate="ionic2SampleApp.users.vendorId">Vendor Id</span></th>
+            <th><span jhiTranslate="ionic2SampleApp.users.addDatetime">Add Datetime</span></th>
+            <th><span jhiTranslate="ionic2SampleApp.users.addUserId">Add User Id</span></th>
+            <th><span jhiTranslate="ionic2SampleApp.users.updateDateTime">Update Date Time</span></th>
+            <th><span jhiTranslate="ionic2SampleApp.users.updateUserId">Update User Id</span></th>
+            <th><span jhiTranslate="ionic2SampleApp.users.parent">Parent</span></th>
+            <th><span jhiTranslate="ionic2SampleApp.users.type">Type</span></th>
+            <th><span jhiTranslate="ionic2SampleApp.users.city">City</span></th>
+            <th><span jhiTranslate="ionic2SampleApp.users.state">State</span></th>
+            <th><span jhiTranslate="ionic2SampleApp.users.country">Country</span></th>
+            <th><span jhiTranslate="ionic2SampleApp.users.location">Location</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let users of users ;trackBy: trackId">
+                <td><a [routerLink]="['../users', users.id ]">{{users.id}}</a></td>
+                <td>{{users.userId}}</td>
+                <td>{{users.fullName}}</td>
+                <td>{{users.username}}</td>
+                <td>{{users.password}}</td>
+                <td>{{users.email}}</td>
+                <td>{{users.contactNo}}</td>
+                <td>{{users.address}}</td>
+                <td>{{users.pincode}}</td>
+                <td>{{users.activation}}</td>
+                <td>{{users.vendorId}}</td>
+                <td>{{users.addDatetime | date:'medium'}}</td>
+                <td>{{users.addUserId}}</td>
+                <td>{{users.updateDateTime | date:'medium'}}</td>
+                <td>{{users.updateUserId}}</td>
+                <td>{{users.parent}}</td>
+                <td>
+                    <div *ngIf="users.type">
+                        <a [routerLink]="['../user-type', users.type?.id ]" >{{users.type?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="users.city">
+                        <a [routerLink]="['../city', users.city?.id ]" >{{users.city?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="users.state">
+                        <a [routerLink]="['../state', users.state?.id ]" >{{users.state?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="users.country">
+                        <a [routerLink]="['../country', users.country?.id ]" >{{users.country?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="users.location">
+                        <a [routerLink]="['../location', users.location?.id ]" >{{users.location?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../users', users.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'users/'+ users.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'users/'+ users.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

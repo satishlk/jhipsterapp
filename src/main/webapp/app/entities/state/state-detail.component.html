@@ -1,0 +1,49 @@
+
+<div *ngIf="state">
+    <h2><span jhiTranslate="ionic2SampleApp.state.detail.title">State</span> {{state.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="ionic2SampleApp.state.stateId">State Id</span></dt>
+        <dd>
+            <span>{{state.stateId}}</span>
+        </dd>
+        <dt><span jhiTranslate="ionic2SampleApp.state.stateName">State Name</span></dt>
+        <dd>
+            <span>{{state.stateName}}</span>
+        </dd>
+        <dt><span jhiTranslate="ionic2SampleApp.state.stateCode">State Code</span></dt>
+        <dd>
+            <span>{{state.stateCode}}</span>
+        </dd>
+        <dt><span jhiTranslate="ionic2SampleApp.state.stateDescription">State Description</span></dt>
+        <dd>
+            <span>{{state.stateDescription}}</span>
+        </dd>
+        <dt><span jhiTranslate="ionic2SampleApp.state.country">Country</span></dt>
+        <dd>
+            <div *ngIf="state.country">
+                <a [routerLink]="['/country', state.country?.id]">{{state.country?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="ionic2SampleApp.state.location">Location</span></dt>
+        <dd>
+            <div *ngIf="state.location">
+                <a [routerLink]="['/location', state.location?.id]">{{state.location?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'state/'+ state.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>
